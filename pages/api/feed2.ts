@@ -99,11 +99,11 @@ async function run(p) {
       }
       tweet.viewed.push(persona.id)
       let m = await evaluate(persona.text, tweet.text)
-      let c = m.split('{')[1]
+      let c = (m as string).split('{')[1]
       let p = JSON.parse(`{${c}`)
 
       console.log('parsed',p)
-      if (p.action == "like" || p.action == "like_and_reply") {
+      if (p.faction == "like" || p.action == "like_and_reply") {
         tweet.likes.push({ user: persona, reason: m })
       } 
      if (p.action == "reply" || p.action == "like_and_reply") {
