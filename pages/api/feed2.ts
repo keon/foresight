@@ -90,7 +90,7 @@ Troll Behavior: Rarely trolls, but may occasionally engage in friendly banter wi
    Bio: A lover of all things visually pleasing, this influencer curates a feed showcasing their personal style, favorite beauty products, and dreamy travel destinations.
    Interests: Fashion, makeup, photography, interior design, and jet-setting to picture-perfect locations.
    Troll Behavior: Unlikely to troll, but might engage in passive-aggressive comments or subtle shade-throwing when defending their aesthetic choices.`}]
-async function run(p) {
+async function run() {
   for (const tweet of timeline) {
     for (const persona of personas) {
       if (tweet.viewed.includes(persona.id)) {
