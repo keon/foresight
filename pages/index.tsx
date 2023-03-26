@@ -149,7 +149,7 @@ export default function IndexPage() {
           </div>
 
           {/* Tweets */}
-          <div className="w-full mt-6">
+          <div className="w-full mt-6 gap-6">
             {[1, 2, 3].map((t) => (
               <Tweet />
             ))}
