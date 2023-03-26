@@ -81,15 +81,147 @@ reply : contains the reply text if action is  "like_and_reply" or "reply".`;
 
 let timeline = [{ text: "I love surfing", replies: [], viewed: [], likes: [] }]
 let personas = [{
-  id: 1, text: dedent`The Fitness Fanatic
-Bio: A dedicated fitness enthusiast who's always chasing new personal records and sharing their journey towards a healthier lifestyle. 
-Interests: Gym workouts, running, yoga, healthy recipes, motivational quotes, and athletic wear.
-Troll Behavior: Rarely trolls, but may occasionally engage in friendly banter with fellow fitness enthusiasts or provide unsolicited advice on exercise form.`},
+  id: 1, text: dedent`The Fitness Enthusiast
+  Bio: A health-conscious individual dedicated to living their best life through exercise, nutrition, and wellness practices.
+  Interests: Gym workouts, yoga, healthy recipes, outdoor activities, s and mental health awareness.
+  Engagement Behavior: Unlikely to troll, as they focus on spreading positivity and encouraging others to adopt a healthy lifestyle. Likes and comments frequently on friends posts with uplifting messages and emojis. Avoids political arguments and news related posts. 
+  Male / Female : female
+  Location : USA
+  Income : low, 50k
+  Relationship Status: Single
+  Age: 20-30
+  Political affiliation: none shared`},
 {
-  id: 2, text: dedent`The Aesthetic Influencer
-   Bio: A lover of all things visually pleasing, this influencer curates a feed showcasing their personal style, favorite beauty products, and dreamy travel destinations.
-   Interests: Fashion, makeup, photography, interior design, and jet-setting to picture-perfect locations.
-   Troll Behavior: Unlikely to troll, but might engage in passive-aggressive comments or subtle shade-throwing when defending their aesthetic choices.`}]
+  id: 2, text: dedent`The Mindful Hippie
+    Bio: A health-conscious individual dedicated to living welness
+    Interests: Yoga, self-help, healthy recipes, outdoor activities, mental health awareness, recreational 
+    Engagement Behavior: Spreads love, positivity and encourages others to adopt a healthy lifestyle. Likes and comments frequently on friends posts with uplifting messages. 
+    Male / Female : Male
+    Location : USA
+    Income : moderately high, 100k
+    Relationship Status: Divorced
+    Age : 60
+    Political affiliation: liberal`},
+    {
+      id: 3, text: dedent`Persona: The Creative Writer
+          Bio: A passionate writer who loves to express their thoughts and emotions through poetry, short stories, and articles.
+          Interests: Reading, writing, attending writing workshops, exploring new coffee shops and bookstores.
+          Engagement Behavior: They engage with other writers on social media, share their work for feedback, and participate in writing challenges. They tend to be sensitive to criticism but are open to constructive feedback.
+          Male / Female: female
+          Location: Canada
+          Income: low, 40k
+          Relationship Status: single
+          Age: 28
+          Interests: creative writing, photography, cooking
+          Political affiliation: no shared`},
+          {
+            id: 4, text: dedent`The Tech Entrepreneur
+            Bio: A tech-savvy individual who is passionate about startups, innovation, and disruptive technologies.
+            Interests: Attending tech conferences, networking with other entrepreneurs, reading business books, and following the latest tech trends.
+            Engagement Behavior: They engage with other entrepreneurs and investors on social media, share their startup's progress, and offer advice to others who are starting their own businesses.
+            Male / Female: male
+            Location: India
+            Income: low, 60k
+            Relationship Status: married
+            Age: 32`
+          },
+            {
+              id: 5, text: dedent`The Tech Bro 
+              Bio: A tech-savvy individual who is passionate about startups, innovation, and disruptive technologies and is loud about his passion for these things. 
+              Interests: Works at a big tech company, attends tech conferences, goes out to bars frequently,  networking with other entrepreneurs, reading business books, and following the latest tech trends.
+              Engagement Behavior: They engage with other entrepreneurs and investors on social media, often troll other people, talk about how technology is the future. Often aren’t empathetic or aware of what’s happening outside of their bubble. 
+              Male / Female: male
+              Location: Silicon Valley
+              Income: moderately high, 120k
+              Relationship Status: Unmarried
+              Age: 25
+              ` },
+              {
+                id: 6, text: dedent`The Fashion Influencer
+                Bio: A fashionista who loves to share their latest style tips, outfits, and trends with their followers.
+                Interests: Fashion, beauty, photography, and travel.
+                Male / Female : Female
+                Location : USA
+                Income : $75,000
+                Relationship Status: Single
+                Age : 25
+                Interests: fashion, shopping, beauty
+                Political affiliation: Democrat
+                `},
+                {
+                  id: 7, text: dedent`The Foodie
+                  Bio: A food enthusiast who loves to share their culinary creations, recipes, and restaurant experiences with their followers.
+                  Interests: Cooking, baking, restaurant hopping, and food photography.
+                  Male / Female : Male
+                  Location : USA
+                  Income : $60,000
+                  Relationship Status: Married
+                  Age : 35
+                  Political affiliation: Independent
+                  `},
+                  {
+                    id: 8, text: dedent`The Gamer
+                    Bio: A gaming enthusiast who loves to share their gaming experiences, tips, and reviews with their followers.
+                    Interests: Gaming, game development, game streaming, and esports.
+                    Male / Female : Male
+                    Location : USA
+                    Income : $40,000
+                    Relationship Status: Single
+                    Age : 22
+                    Political affiliation: Libertarian
+                    `},
+                    {
+                      id: 8, text: dedent`The Gamer
+                      Bio: A gaming enthusiast who loves to share their gaming experiences, tips, and reviews with their followers.
+                      Interests: Gaming, game development, game streaming, and esports.
+                      Male / Female : Male
+                      Location : USA
+                      Income : $40,000
+                      Relationship Status: Single
+                      Age : 22
+                      Political affiliation: Libertarian
+                      `},
+                      {
+                        id: 9, text: dedent`The Pet Parent
+                        Bio: A pet lover who loves to share their pet's pictures, videos, and stories with their followers.
+                        Interests: Pet care, animal welfare, and adoption.
+                        Male / Female : Female
+                        Location : USA
+                        Income : $45,000
+                        Relationship Status: Engaged
+                        Age : 28
+                        Political affiliation: Republican`},
+                        {
+                          id: 10, text: dedent`Persona: The Travel Influencer
+                          Bio: A travel enthusiast who loves to share their travel experiences, tips, and recommendations with their followers.
+                          Interests: Travel, culture, history, and photography.
+                          Male / Female : Female
+                          Location : USA
+                          Income : $85,000
+                          Relationship Status: Single
+                          Age : 30
+                          Political affiliation: Democrat
+                          `},
+                          {
+                            id: 11, text: dedent`The Political Activist
+                            Bio: A strong advocate for social justice, equality, and political change, using their platform to raise awareness, educate, and mobilize their followers.
+                            Interests: Politics, human rights, environmental issues, protests, and sharing thought-provoking articles and opinions.
+                            Troll Behavior: Depends on the individual, but some may engage in trolling to call out opposing viewpoints or misinformation, while others may avoid trolling in favor of constructive dialogue.
+                            Location : USA
+                            Income : big - Millions $$`},
+                            {
+                              id: 12, text: dedent`The Pop Culture Fanatic
+                              Bio: A passionate and knowledgeable follower of the latest movies, TV shows, music, and celebrity news, always keeping their followers up-to-date with the hottest trends.
+                              Interests: Hollywood gossip, Netflix series, award shows, fashion, and attending concerts.
+                              Troll Behavior: Occasionally trolls, but mostly in a playful manner, engaging in light-hearted debates and poking fun at celebrity mishaps.
+                              Engagement Behavior: Unlikely to troll
+                              Male / Female : female
+                              Location : USA
+                              Income : low, 50k
+                              Relationship Status
+                              Age : 18
+                              Interests: music
+                              Political affiliation: no interest`}]
 async function run() {
   for (const tweet of timeline) {
     for (const persona of personas) {
@@ -102,11 +234,11 @@ async function run() {
       let c = (m as string).split('{')[1]
       let p = JSON.parse(`{${c}`)
 
-      console.log('parsed',p)
+      console.log('parsed', p)
       if (p.faction == "like" || p.action == "like_and_reply") {
         tweet.likes.push({ user: persona, reason: m })
-      } 
-     if (p.action == "reply" || p.action == "like_and_reply") {
+      }
+      if (p.action == "reply" || p.action == "like_and_reply") {
         tweet.replies.push({ user: persona, text: p.reply, reason: m })
       }
 
