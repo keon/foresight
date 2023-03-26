@@ -15,10 +15,7 @@ export function SiteHeader() {
         <MainNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <Avatar className="h-8 w-8 cursor-pointer">
-            <AvatarImage
-              src={"https://github.com/shadcn.png"}
-              alt={"profile"}
-            />
+            <AvatarImage src={"https://github.com/keon.png"} alt={"profile"} />
             <AvatarFallback>
               <User className="h-6 w-6" />
             </AvatarFallback>

@@ -12,7 +12,7 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Crystal",
+  name: "Foresight",
   description: "Boostrap people for your product",
   mainNav: [
     // {
