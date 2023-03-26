@@ -46,7 +46,7 @@
     "clsx": "^1.2.1",
     "cmdk": "^0.1.21",
     "dedent-js": "^1.0.1",
-    "lucide-react": "0.105.0-alpha.4",
+    "lucide-react": "^0.127.0",
     "next": "^13.1.6",
     "next-themes": "^0.2.1",
     "openai": "^3.2.1",

@@ -1,12 +1,9 @@
 import Head from "next/head"
-import Link from "next/link"
-import { MessageCircleIcon, ThumbsUpIcon, User, Wand2Icon } from "lucide-react"
+import { MessageCircle, ThumbsUp, User, Wand } from "lucide-react"
 
-import { siteConfig } from "@/config/site"
 import { Layout } from "@/components/layout"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button, buttonVariants } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import {
   Tooltip,
@@ -31,7 +28,7 @@ const Comment = () => {
           <TooltipProvider delayDuration={50}>
             <Tooltip>
               <TooltipTrigger>
-                <Wand2Icon className="h-3.5 w-3.5 text-violet-700" />
+                {/* <Wand2Icon className="h-3.5 w-3.5 text-violet-700" /> */}
               </TooltipTrigger>
               <TooltipContent>
                 <p>
@@ -72,7 +69,7 @@ const Tweet = () => {
           <TooltipProvider delayDuration={50}>
             <Tooltip>
               <TooltipTrigger>
-                <Wand2Icon className="h-4 w-4 text-violet-700" />
+                <Wand className="h-4 w-4 text-violet-700" />
               </TooltipTrigger>
               <TooltipContent>
                 <p>
@@ -96,12 +93,12 @@ const Tweet = () => {
         </div>
         <div className="flex flex-row gap-4 mb-4">
           <div className="mt-2 flex flex-row text-[#888] text-sm items-center gap-1">
-            <ThumbsUpIcon className="w-4 h-4" />
+            <ThumbsUp className="w-4 h-4" />
             <div>12</div>
           </div>
 
           <div className="mt-2 flex flex-row text-[#888] text-sm items-center gap-1">
-            <MessageCircleIcon className="w-4 h-4" />
+            <MessageCircle className="w-4 h-4" />
             <div>4</div>
           </div>
         </div>
@@ -151,7 +148,7 @@ export default function IndexPage() {
           {/* Tweets */}
           <div className="w-full mt-6 gap-6">
             {[1, 2, 3].map((t) => (
-              <Tweet />
+              <Tweet key={t} />
             ))}
           </div>
         </div>
