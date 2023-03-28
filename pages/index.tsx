@@ -61,71 +61,9 @@ const timelineSample = [
   },
 ]
 
-const idToUser = {
-  1: {
-    name: "The Fitness Fanatic",
-    handle: "@fitness",
-    image: "https://api.dicebear.com/5.x/adventurer/svg?seed=Whiskers",
-  },
-  2: {
-    name: "The Mindful Hippie",
-    handle: "@hippie",
-    image: "https://api.dicebear.com/5.x/adventurer/svg?seed=Mimi",
-  },
-  3: {
-    name: "The Creative Writer",
-    handle: "@writer",
-    image: "https://api.dicebear.com/5.x/adventurer/svg?seed=Miami",
-  },
-  4: {
-    name: "The Tech Entrepreneur",
-    handle: "@entr",
-    image: "https://api.dicebear.com/5.x/adventurer/svg?seed=Midddmi",
-  },
-  5: {
-    name: "The Tech Bro",
-    handle: "@tech",
-    image: "https://api.dicebear.com/5.x/adventurer/svg?seed=Mimi",
-  },
-  6: {
-    name: "The Fashion Influencer",
-    handle: "@inf",
-    image: "https://api.dicebear.com/5.x/adventurer/svg?seed=dfdd",
-  },
-  7: {
-    name: "The Foodie",
-    handle: "@food",
-    image: "https://api.dicebear.com/5.x/adventurer/svg?seed=Midfsfmi",
-  },
-  8: {
-    name: "The Gamer",
-    handle: "@game",
-    image: "https://api.dicebear.com/5.x/adventurer/svg?seed=Midmi",
-  },
-  9: {
-    name: "The Pet Parent",
-    handle: "@pet",
-    image: "https://api.dicebear.com/5.x/adventurer/svg?seed=Misami",
-  },
-  10: {
-    name: "The Travel Influencer",
-    handle: "@dsfdf",
-    image: "https://api.dicebear.com/5.x/adventurer/svg?seed=Mismi",
-  },
-  11: {
-    name: "The Political Activist",
-    handle: "@sdf",
-    image: "https://api.dicebear.com/5.x/adventurer/svg?seed=Misssmi",
-  },
-  12: {
-    name: "The Pop Culture Fanatic",
-    handle: "@oip",
-    image: "https://api.dicebear.com/5.x/adventurer/svg?seed=Midasdmi",
-  },
-}
 
 const Comment = (c: any) => {
-  const user = idToUser[c?.c?.user.id]
+  const user = c?.c?.User
   console.log("C:", c)
   return (
     <div className="flex gap-3">
@@ -139,7 +77,7 @@ const Comment = (c: any) => {
       </div>
       <div className="flex flex-col">
         <div className="flex flex-row gap-2 items-center">
-          {/* <TooltipProvider delayDuration={50}>
+          <TooltipProvider delayDuration={50}>
             <Tooltip>
               <TooltipTrigger>
               </TooltipTrigger>
@@ -147,7 +85,7 @@ const Comment = (c: any) => {
                 <p className="max-w-sm">{c?.c?.reason}</p>
               </TooltipContent>
             </Tooltip>
-          </TooltipProvider> */}
+          </TooltipProvider>
 
           <AlertDialog>
             <AlertDialogTrigger asChild>
@@ -157,7 +95,7 @@ const Comment = (c: any) => {
               <AlertDialogHeader>
                 <AlertDialogTitle>Reason</AlertDialogTitle>
                 <AlertDialogDescription>
-                  <p>{c?.c?.reason}</p>
+                  <p className="whitespace-pre-line overflow-y-scroll h-[60vh]" >{c?.c?.reason}</p>
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
@@ -179,11 +117,12 @@ const Comment = (c: any) => {
 }
 
 const Tweet = (post) => {
+  const user = post?.post?.User
   console.log(post.post)
   return (
-    <div key={"sdfds"} className="flex flex-row gap-3 p-3 w-full">
+    <div className="flex flex-row gap-3 p-3 w-full">
       <Avatar className="h-12 w-12 cursor-pointer">
-        <AvatarImage src={"https://github.com/keon.png"} alt={"profile"} />
+        <AvatarImage src={user.image} alt={"profile"} />
         <AvatarFallback>
           <User className="h-8 w-8" />
         </AvatarFallback>
@@ -191,46 +130,74 @@ const Tweet = (post) => {
       {/* text places */}
       <div className="flex flex-col">
         <div className="flex flex-row gap-2 items-center">
-          {/* <TooltipProvider delayDuration={50}>
-            <Tooltip>
-              <TooltipTrigger>
-                <Wand className="h-4 w-4 text-violet-700" />
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>
-                  This comment is written by a synthetic personality created by
-                  ChatGPT-4
-                </p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider> */}
-          <div className="font-semibold">Keon Kim</div>
+        <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Wand className="h-3.5 w-3.5 text-violet-700" />
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Reason</AlertDialogTitle>
+                <AlertDialogDescription>
+                  <p className="whitespace-pre-line overflow-y-scroll h-[60vh]" >{post?.post?.reason}</p>
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogAction>Continue</AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+          <div className="font-semibold">{user.name}</div>
           <div className="font-light flex text-[#888] text-sm gap-1 items-center">
-            <div className="">@keon</div>
+            <div className="">{user.handle}</div>
             <div>·</div>
             <div>1m</div>
           </div>
         </div>
         <div>{post.post?.text}</div>
         <div className="flex flex-row gap-4 mb-4">
-          <div className="mt-2 flex flex-row text-[#888] text-sm items-center gap-1">
+
+        <AlertDialog>
+            <AlertDialogTrigger asChild>
+            <div className="mt-2 flex flex-row text-[#888] text-sm items-center gap-1">
             <ThumbsUp className="w-4 h-4" />
-            <div>{post.post?.likes?.length}</div>
+            <div>{post.post?.Likes?.length}</div>
           </div>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Reason</AlertDialogTitle>
+                <AlertDialogDescription>
+                  <p className="whitespace-pre-line overflow-y-scroll h-[60vh]" >{post.post?.Likes.map(like => {
+                    return (
+                      <div>
+                        <div className="font-semibold">{like.name}</div>
+                        <div>{like.handle}</div>
+                        <div>{like.Like.reason}</div>
+                      </div>
+                    )
+                  }) }</p>
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogAction>Continue</AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+
 
           <div className="mt-2 flex flex-row text-[#888] text-sm items-center gap-1">
             <MessageCircle className="w-4 h-4" />
-            <div>{post.post?.replies?.length}</div>
+            <div>{post.post?.Replies?.length}</div>
           </div>
 
           <div className="mt-2 flex flex-row text-[#888] text-sm items-center gap-1">
             <Eye className="w-4 h-4" />
-            <div>{post.post?.viewed?.length}</div>
+            <div>{post.post?.views}</div>
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          {post?.post?.replies.map((r) => (
-            <Comment c={r} />
+          {post?.post?.Replies.map((r, i) => (
+            <Comment c={r} key={i} />
           ))}
         </div>
       </div>
@@ -243,7 +210,7 @@ export default function IndexPage() {
   const [timeline, setTimeline] = useState([])
 
   const updateTimeline = async () => {
-    fetch(`/api/feed2`).then(async (res) => {
+    fetch(`/api/timeline`).then(async (res) => {
       if (res.status === 200) {
         const { timeline } = await res.json()
         console.log("timeline:", timeline)
@@ -253,7 +220,14 @@ export default function IndexPage() {
   }
 
   const handleSubmit = () => {
-    fetch(`/api/feed2`, {
+
+    // optimistically push tweet
+    setTimeline([
+      
+    { text, User:{id: 0, handle: "@keon", name: "Keon Kim", image: "https://github.com/keon.png"}, Replies: [], views: 0, Likes: [] },
+      ...timeline,
+    ])
+    fetch(`/api/timeline`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -319,8 +293,8 @@ export default function IndexPage() {
 
           {/* Tweets */}
           <div className="w-full mt-6 gap-6">
-            {timeline.map((p) => (
-              <Tweet post={p} />
+            {timeline.map((p, i) => (
+              <Tweet post={p} key={i} />
             ))}
           </div>
         </div>
